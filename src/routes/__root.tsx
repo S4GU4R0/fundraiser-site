@@ -25,25 +25,11 @@ export const Route = createRootRouteWithContext<{
 }>()({
   component: () => (
     <>
-      <div className="flex h-[60px] gap-4 bg-blue-800 p-4 text-white shadow-md">
-        <Link
-          to="/"
-          className="transition-colors hover:text-blue-200 [&.active]:font-bold"
-        >
-          Home
-        </Link>
-        <Link
-          to="/demo"
-          className="transition-colors hover:text-blue-200 [&.active]:font-bold"
-        >
-          Demo
-        </Link>
-      </div>
-      <main className="h-[calc(100vh-60px)] w-screen bg-gray-900 text-white">
+      <div className="bg-gray-900 font-mono">
         <Outlet />
-      </main>
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools position="bottom-right" />
+      </div>
+      {/* <ReactQueryDevtools buttonPosition="top-right" />
+      <TanStackRouterDevtools position="bottom-right" /> */}
     </>
   ),
 });

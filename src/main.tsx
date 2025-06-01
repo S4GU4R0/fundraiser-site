@@ -1,3 +1,4 @@
+import "simplebar-react/dist/simplebar.min.css";
 import "./styles/index.css";
 
 import { StrictMode } from "react";
