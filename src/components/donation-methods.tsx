@@ -30,7 +30,7 @@ function DonationMethods() {
     },
   ];
 
-  const copyToClipboard = (text, methodName) => {
+  const copyToClipboard = (text: string, methodName: string) => {
     navigator.clipboard.writeText(text).then(() => {
       setCopiedMethod(methodName);
       setTimeout(() => setCopiedMethod(""), 2000);

@@ -17,13 +17,17 @@ function DateProgressTracker() {
   }, []);
 
   // Calculate progress
-  const totalDays = Math.ceil((targetDate - startDate) / (1000 * 60 * 60 * 24));
+  const totalDays = Math.ceil(
+    (targetDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24),
+  );
   const elapsedDays = Math.floor(
-    (currentDate - startDate) / (1000 * 60 * 60 * 24),
+    (currentDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24),
   );
   const remainingDays = Math.max(
     0,
-    Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24)),
+    Math.ceil(
+      (targetDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24),
+    ),
   );
   const progressPercentage = Math.min(
     100,

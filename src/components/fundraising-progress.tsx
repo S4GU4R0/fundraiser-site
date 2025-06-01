@@ -51,10 +51,13 @@ function FundraisingProgressTracker() {
       kofi: "☕",
     };
 
-    const sourceAmounts = donations.reduce((acc, donation) => {
-      acc[donation.source] = (acc[donation.source] || 0) + donation.amount;
-      return acc;
-    }, {});
+    const sourceAmounts = donations.reduce<Record<string, number>>(
+      (acc, donation) => {
+        acc[donation.source] = (acc[donation.source] || 0) + donation.amount;
+        return acc;
+      },
+      {},
+    );
 
     let chart = "\n By Source:\n";
 
