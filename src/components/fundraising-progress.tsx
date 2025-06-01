@@ -45,7 +45,7 @@ function FundraisingProgressTracker() {
 
   // Generate ASCII dollar visualization by source
   const generateDollarChart = () => {
-    const sourceIcons = {
+    const sourceIcons: Record<string, string> = {
       venmo: "💙",
       cashapp: "💚",
       kofi: "☕",
@@ -87,7 +87,7 @@ function FundraisingProgressTracker() {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleAddAmount();
     }

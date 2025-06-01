@@ -144,7 +144,7 @@ function HousingWishlist() {
     }
   };
 
-  const handleUnclaimItem = (itemId) => {
+  const handleUnclaimItem = (itemId: number) => {
     setWishlistItems((prev) =>
       prev.map((item) =>
         item.id === itemId ? { ...item, claimed: false, claimedBy: "" } : item,
@@ -154,16 +154,18 @@ function HousingWishlist() {
 
   const sortedItems = [...wishlistItems].sort((a, b) => {
     // Sort by priority (urgency) first: high, medium, low
-    const priorityOrder: Record<string, number> = {
+    const priorityOrder: Record<WishlistPriority, number> = {
       high: 0,
       medium: 1,
       low: 2,
     };
     if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
-      return priorityOrder[a.priority] - priorityOrder[b.priority];
+      return (
+        Number(priorityOrder[a.priority]) - Number(priorityOrder[b.priority])
+      );
     }
     // Then by claimed status (unclaimed first)
-    if (a.claimed !== b.claimed) return a.claimed - b.claimed;
+    if (a.claimed !== b.claimed) return Number(a.claimed) - Number(b.claimed);
     // Then by category
     return a.category.localeCompare(b.category);
   });
