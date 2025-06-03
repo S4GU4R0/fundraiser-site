@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 
 function FundraisingProgressTracker() {
   const [donations, setDonations] = useState([
+    { amount: 50, source: "kofi", date: new Date("2025-06-02") },
+    { amount: 100, source: "kofi", date: new Date("2025-05-31") },
+    { amount: 40, source: "kofi", date: new Date("2025-05-31") },
     { amount: 30, source: "venmo", date: new Date("2025-06-02") },
     { amount: 50, source: "venmo", date: new Date("2025-06-01") },
     { amount: 25, source: "venmo", date: new Date("2025-06-01") },
