@@ -23,15 +23,27 @@ interface WishlistItem {
 function HousingWishlist() {
   const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([
     {
-      id: 1,
-      item: "3 collapsible dog bowls",
-      category: "supplies",
+      id: 3,
+      item: "referrals for daytime dog boarding",
+      category: "information",
       priority: "medium",
       claimed: false,
       claimedBy: "",
       claimedByUrl: "",
       estimatedCost: 0,
-      description: "fabric is more durable than silicone",
+      description: "if i cannot find shelter. this will help me keep my job",
+    },
+    {
+      id: 8,
+      item: "referrals for over-night volunteer dog sitters",
+      category: "information",
+      priority: "medium",
+      claimed: false,
+      claimedBy: "",
+      claimedByUrl: "",
+      estimatedCost: 0,
+      description:
+        "if i cannot find shelter. this will help me keep my dogs safe",
     },
     {
       id: 2,
@@ -46,15 +58,15 @@ function HousingWishlist() {
         "kind of pricey but they are known to last a lifetime. socks are the most commonly needed item.",
     },
     {
-      id: 3,
-      item: "referrals for daytime dog boarding",
-      category: "information",
+      id: 1,
+      item: "3 collapsible dog bowls",
+      category: "supplies",
       priority: "medium",
       claimed: false,
       claimedBy: "",
       claimedByUrl: "",
       estimatedCost: 0,
-      description: "if i cannot find shelter. this will help me keep my job",
+      description: "fabric is more durable than silicone",
     },
     {
       id: 4,
@@ -126,24 +138,6 @@ function HousingWishlist() {
   const emailDomain = "icloud.com";
   const email = `${emailUser}@${emailDomain}`;
 
-  const handleAddItem = () => {
-    if (newItemText.trim()) {
-      const newItem: WishlistItem = {
-        id: Date.now(),
-        item: newItemText.trim(),
-        category: selectedCategory as WishlistCategory,
-        priority: "medium",
-        claimed: false,
-        claimedBy: "",
-        claimedByUrl: "",
-        estimatedCost: 0,
-        description: "",
-      };
-      setWishlistItems((prev) => [...prev, newItem]);
-      setNewItemText("");
-    }
-  };
-
   const handleUnclaimItem = (itemId: number) => {
     setWishlistItems((prev) =>
       prev.map((item) =>
@@ -214,36 +208,21 @@ function HousingWishlist() {
         <div className="mb-2 text-2xl">
           🏡{" "}
           <span className="text-lg font-bold text-purple-400">
-            Housing Wishlist
+            Supplies Needed
           </span>
         </div>
-        <div className="text-sm text-gray-300">
-          Help beyond donations - every bit counts!
-        </div>
-      </div>
-
-      {/* Stats */}
-      <div className="mb-4 grid grid-cols-3 gap-2 text-center">
-        <div className="rounded-lg bg-gray-800 p-2">
-          <div className="text-lg font-bold text-white">{stats.total}</div>
-          <div className="text-xs text-gray-400">total items</div>
-        </div>
-        <div className="rounded-lg bg-gray-800 p-2">
-          <div className="text-lg font-bold text-green-400">
-            {stats.claimed}
-          </div>
-          <div className="text-xs text-gray-400">claimed</div>
-        </div>
-        <div className="rounded-lg bg-gray-800 p-2">
-          <div className="text-lg font-bold text-red-400">
-            {stats.highPriority}
-          </div>
-          <div className="text-xs text-gray-400">urgent</div>
+        <div className="text-left text-sm text-gray-300">
+          ⚠️ Tap "Provide" to contact me for info to send information or{" "}
+          <strong>used</strong> supplies. <br />
+          <br />
+          Many of the places I've reached out to are full or do not allow dogs.
+          There is a small chance I will end up unsheltered, even if I raise
+          some funds.
         </div>
       </div>
 
       {/* Category Filter */}
-      <div className="mb-4 flex flex-wrap justify-center gap-2">
+      <div className="justify-left mb-4 flex flex-wrap gap-2">
         <button
           className={`rounded px-3 py-1 text-xs font-semibold transition-colors ${categoryFilter === "all" ? "bg-purple-600 text-white" : "bg-gray-700 text-gray-200 hover:bg-purple-500"}`}
           onClick={() => setCategoryFilter("all")}
