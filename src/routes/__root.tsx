@@ -36,48 +36,10 @@ export const Route = createRootRouteWithContext<{
   ),
   head: () => ({
     meta: [
-      { title: "S4GU4R0 Housing & Supplies Fundraiser" },
-      {
-        name: "description",
-        content:
-          "Urgent fundraiser for S4GU4R0, who is at risk of being unsheltered with dogs. Donate or provide supplies to help keep us safe and together.",
-      },
-      {
-        property: "og:title",
-        content: "S4GU4R0 Housing & Supplies Fundraiser",
-      },
-      {
-        property: "og:description",
-        content:
-          "Urgent fundraiser for S4GU4R0, who is at risk of being unsheltered with dogs. Donate or provide supplies to help keep us safe and together.",
-      },
-      {
-        property: "og:image",
-        content: "/studio-b1897b2d25548010e79272580553c07a-nicvbhlm.jpg",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "S4GU4R0 Housing & Supplies Fundraiser",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Urgent fundraiser for S4GU4R0, who is at risk of being unsheltered with dogs. Donate or provide supplies to help keep us safe and together.",
-      },
-      {
-        name: "twitter:image",
-        content: "/studio-b1897b2d25548010e79272580553c07a-nicvbhlm.jpg",
-      },
+      // All OG, Twitter, and description meta tags are now in index.html and should be removed from here
     ],
     links: [
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "72x72",
-        href: "/favicon.png",
-      },
+      // The favicon link is now in index.html and should be removed from here
     ],
   }),
 });
