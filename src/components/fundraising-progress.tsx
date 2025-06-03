@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function FundraisingProgressTracker() {
   const [donations, setDonations] = useState([
+    { amount: 80, source: "venmo", date: new Date("2025-06-03") },
+    { amount: 15, source: "venmo", date: new Date("2025-06-02") },
     { amount: 50, source: "kofi", date: new Date("2025-06-02") },
     { amount: 100, source: "kofi", date: new Date("2025-05-31") },
     { amount: 40, source: "kofi", date: new Date("2025-05-31") },
@@ -13,9 +15,7 @@ function FundraisingProgressTracker() {
     { amount: 50, source: "venmo", date: new Date("2025-05-30") },
     { amount: 50, source: "venmo", date: new Date("2025-05-30") },
     { amount: 45, source: "venmo", date: new Date("2025-05-31") },
-  ]); // Example donations with sources
-  const [inputAmount, setInputAmount] = useState("");
-  const [selectedSource, setSelectedSource] = useState("venmo");
+  ]);
 
   const goalAmount = 1000;
   const currentAmount = donations.reduce(
@@ -80,25 +80,6 @@ function FundraisingProgressTracker() {
     });
 
     return chart;
-  };
-
-  const handleAddAmount = () => {
-    const amount = parseFloat(inputAmount);
-    if (!isNaN(amount) && amount > 0) {
-      const newDonation = {
-        amount: amount,
-        source: selectedSource,
-        date: new Date(),
-      };
-      setDonations((prev) => [...prev, newDonation]);
-      setInputAmount("");
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleAddAmount();
-    }
   };
 
   const isGoalReached = currentAmount >= goalAmount;
