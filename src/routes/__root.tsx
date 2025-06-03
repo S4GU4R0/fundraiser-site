@@ -51,7 +51,10 @@ export const Route = createRootRouteWithContext<{
         content:
           "Urgent fundraiser for S4GU4R0, who is at risk of being unsheltered with dogs. Donate or provide supplies to help keep us safe and together.",
       },
-      { property: "og:image", content: "/src/assets/dogs_playing.gif" },
+      {
+        property: "og:image",
+        content: "/studio-b1897b2d25548010e79272580553c07a-nicvbhlm.jpg",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       {
@@ -63,7 +66,10 @@ export const Route = createRootRouteWithContext<{
         content:
           "Urgent fundraiser for S4GU4R0, who is at risk of being unsheltered with dogs. Donate or provide supplies to help keep us safe and together.",
       },
-      { name: "twitter:image", content: "/src/assets/dogs_playing.gif" },
+      {
+        name: "twitter:image",
+        content: "/studio-b1897b2d25548010e79272580553c07a-nicvbhlm.jpg",
+      },
     ],
     links: [
       {
