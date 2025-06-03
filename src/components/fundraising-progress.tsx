@@ -73,10 +73,10 @@ function FundraisingProgressTracker() {
     Object.entries(sourceAmounts).forEach(([source, amount]) => {
       const count = Math.floor(amount / 50); // Each icon = $50
       chart += ` ${source}: `;
-      for (let i = 0; i < count; i++) {
-        chart += sourceIcons[source] || "💰";
-      }
-      chart += ` $${amount}\n`;
+      // for (let i = 0; i < count; i++) {
+      //   chart += sourceIcons[source] || "💰";
+      // }
+      chart += `$${amount}\n`;
     });
 
     return chart;
