@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function DateProgressTracker() {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [blinkOn, setBlinkOn] = useState(true);
 
   // Target date: June 29, 2025
   const targetDate = new Date("2025-06-29");
@@ -14,6 +15,14 @@ function DateProgressTracker() {
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  // Blinking effect for current day
+  useEffect(() => {
+    const blinkTimer = setInterval(() => {
+      setBlinkOn((prev) => !prev);
+    }, 500);
+    return () => clearInterval(blinkTimer);
   }, []);
 
   // Calculate progress
@@ -35,7 +44,7 @@ function DateProgressTracker() {
   );
 
   // Generate ASCII chart showing daily progress - much simpler and clearer
-  const generateDailyChart = () => {
+  const generateDailyChart = (blink: boolean) => {
     const isMobile = window.innerWidth < 768;
     const chartWidth = isMobile ? 30 : 50;
 
@@ -46,11 +55,8 @@ function DateProgressTracker() {
     for (let day = 0; day < totalDaysToShow; day++) {
       if (day < elapsedDays) {
         chart += "■"; // Completed day
-      } else if (
-        day === elapsedDays &&
-        progressPercentage % (100 / totalDays) > 0
-      ) {
-        chart += "▣"; // Current day (partial)
+      } else if (day === elapsedDays) {
+        chart += blink ? "■" : "□"; // Current day (partial) blinking
       } else {
         chart += "□"; // Future day
       }
@@ -62,7 +68,7 @@ function DateProgressTracker() {
   const isOverdue = currentDate > targetDate;
 
   return (
-    <div className="rounded-lg bg-gray-900 p-4 font-mono text-green-400">
+    <div className="text-white400 rounded-lg bg-gray-900 p-4 font-mono">
       <div className="mb-4">
         <h1 className="mb-2 text-center text-xl font-bold text-green-300 md:text-2xl">
           🧨{" "}
@@ -71,16 +77,16 @@ function DateProgressTracker() {
           >
             {remainingDays}
           </div>{" "}
-          days left to find housing
+          days until off-grid life begins
         </h1>
-        <div className="text-center text-xs text-gray-400 md:text-sm">
-          {currentDate.toLocaleDateString()} {currentDate.toLocaleTimeString()}
-        </div>
+        <h2 className="md:text-md mb-2 text-center text-sm font-bold text-purple-400">
+          Found a place, need supplies
+        </h2>
       </div>
       {/* ASCII Chart */}
       <div className="">
         <pre className="text-center text-xs text-green-400">
-          {generateDailyChart()}
+          {generateDailyChart(blinkOn)}
         </pre>
       </div>
     </div>

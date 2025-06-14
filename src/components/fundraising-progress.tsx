@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 
+import { AsciiVideoCard } from "@components/ascii-video-card";
+
 function FundraisingProgressTracker() {
   const [donations, setDonations] = useState([
+    { amount: 100, source: "venmo", date: new Date("2025-06-05") },
     { amount: 80, source: "venmo", date: new Date("2025-06-03") },
     { amount: 15, source: "venmo", date: new Date("2025-06-02") },
     { amount: 50, source: "kofi", date: new Date("2025-06-02") },
@@ -17,7 +20,7 @@ function FundraisingProgressTracker() {
     { amount: 45, source: "venmo", date: new Date("2025-05-31") },
   ]);
 
-  const goalAmount = 1000;
+  const goalAmount = 2000;
   const currentAmount = donations.reduce(
     (sum, donation) => sum + donation.amount,
     0,
@@ -27,7 +30,7 @@ function FundraisingProgressTracker() {
 
   // Generate ASCII progress bar - mobile optimized
   const generateProgressBar = () => {
-    const barWidth = 20; // Fixed small width for mobile
+    const barWidth = 15; // Fixed small width for mobile
     const filledBlocks = Math.floor((progressPercentage / 100) * barWidth);
     const emptyBlocks = barWidth - filledBlocks;
 
@@ -85,7 +88,7 @@ function FundraisingProgressTracker() {
   const isGoalReached = currentAmount >= goalAmount;
 
   return (
-    <div className="rounded-lg border-2 border-green-200 bg-gradient-to-b from-transparent to-emerald-900 p-4 shadow-lg">
+    <div className="rounded-lg p-4">
       <div className="mb-4 text-center">
         <div className="mb-2 text-2xl">
           {isGoalReached ? "🎉" : "💰"}{" "}
@@ -103,7 +106,7 @@ function FundraisingProgressTracker() {
       </div>
 
       {/* ASCII Visualizations - mobile optimized */}
-      <div className="overflow-x-auto rounded-lg bg-gray-900 p-3 font-mono text-xs leading-tight text-green-400">
+      <div className="rounded-lg bg-gray-900 p-3 font-mono text-xs leading-tight text-green-400">
         <pre>{generateProgressBar()}</pre>
         <pre>{generateDollarChart()}</pre>
       </div>
@@ -111,12 +114,10 @@ function FundraisingProgressTracker() {
       {/* Stats - mobile stack */}
       <div className="mt-3 space-y-2">
         <div className="rounded-lg border bg-gray-900 p-2 text-center">
-          <div className="inline-block bg-green-500 p-1 text-xl font-bold">
+          <div className="inline-block bg-green-500 p-1 text-lg font-bold">
             {donations.length}
           </div>{" "}
-          <div className="inline-block text-xs text-gray-100">
-            total donations
-          </div>
+          <div className="inline-block text-xs text-gray-100">donations</div>
         </div>
       </div>
 

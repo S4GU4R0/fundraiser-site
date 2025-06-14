@@ -202,7 +202,7 @@ function HousingWishlist() {
   };
 
   return (
-    <div className="rounded-lg border-2 border-purple-200 bg-gradient-to-bl from-transparent to-purple-900 p-4 shadow-lg">
+    <div className="rounded-lg border-2 border-purple-200 bg-gradient-to-bl from-transparent to-purple-900 p-4">
       {/* Header */}
       <div className="mb-4 text-center">
         <div className="mb-2 text-2xl">
@@ -370,7 +370,7 @@ function HousingWishlist() {
 
       {captchaOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="mx-2 w-full max-w-xs rounded-lg border-2 border-green-200 bg-gray-900 p-4 shadow-lg">
+          <div className="mx-2 w-full max-w-xs rounded-lg border-2 border-green-200 bg-gray-900 p-4">
             <h2 className="mb-2 text-center text-lg font-bold text-green-400">
               Sorry, I don't want to get harassed.
             </h2>

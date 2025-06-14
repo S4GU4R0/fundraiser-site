@@ -4,7 +4,7 @@ import dogsPlayingGif from "../assets/dogs_playing.gif";
 
 export function AsciiVideoCard() {
   return (
-    <div className="mx-auto flex max-w-md flex-col items-center rounded-lg bg-gray-800 p-4 shadow-lg">
+    <div className="mx-auto my-4 mr-2 flex max-w-md flex-col items-center rounded-lg">
       <div className="flex w-full justify-center">
         <img
           src={dogsPlayingGif}

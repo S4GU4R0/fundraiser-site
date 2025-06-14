@@ -12,7 +12,7 @@ export function PendingComponent() {
         <AsciiVideoPlayer />
       ) : (
         <div className="flex h-screen w-screen items-center justify-center bg-gray-900">
-          <div className="rounded-lg bg-gray-800 p-8 shadow-2xl">
+          <div className="rounded-lg bg-gray-800 p-8">
             <div className="flex flex-col items-center">
               {/* ASCII Loader (simple bouncing dots) */}
               <pre className="mb-4 select-none font-mono text-xl leading-none text-green-400">

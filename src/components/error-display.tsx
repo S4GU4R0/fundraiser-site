@@ -9,7 +9,7 @@ export function ErrorDisplay({
 }) {
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-900">
-      <div className="rounded-lg bg-gray-800 p-8 shadow-2xl">
+      <div className="rounded-lg bg-gray-800 p-8">
         <h1 className="mb-4 text-3xl font-bold text-red-400">Oops!</h1>
         <p className="text-gray-300">An unexpected error occurred:</p>
         <pre className="mt-4 rounded-md bg-gray-700 p-4 font-mono text-sm text-red-300">
